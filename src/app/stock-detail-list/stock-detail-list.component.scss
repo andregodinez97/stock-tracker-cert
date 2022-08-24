@@ -1,0 +1,9 @@
+.stock-detail-list-container {
+  display: flex;
+  flex-flow: row wrap;
+  //justify-content: space-evenly;
+}
+
+app-stock-detail {
+  width: 50%;
+}

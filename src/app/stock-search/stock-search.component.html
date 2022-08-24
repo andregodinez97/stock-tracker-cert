@@ -1,0 +1,29 @@
+<div class="stock-search-container">
+  <mat-card>
+    <mat-card-title>Stock Tracker</mat-card-title>
+    <mat-card-content>
+      <div class="content-text">
+        <h3>Enter the symbol of a stock to track <span>(i.e. AAPL, TSLA, GOOGL)</span></h3>
+      </div>
+      <div class="stock-input-container">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Stock Symbol, ISIN, CUSIP</mat-label>
+          <input
+            matInput
+            [formControl]="stockSearchInput"
+            [matAutocomplete]="auto">
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            [displayWith]="displayFn"
+            (optionSelected)="onOptionSelected($event.option.value)">
+            <mat-option *ngFor="let stockSymbol of stockDataService.symbolLookup$ | async" [value]="stockSymbol">
+              {{stockSymbol?.symbol}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button [disabled]="trackButtonDisabled" (click)="onTrackButtonClicked()" color="primary" class="track-it-button" mat-button>Track it</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

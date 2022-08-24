@@ -1,0 +1,7 @@
+<app-stock-search></app-stock-search>
+<div class="stock-detail-list-container">
+  <app-stock-detail
+    *ngFor="let stockQuote of stockDataService.trackedStockQuotes$ | async"
+   [stockQuote]="stockQuote"
+  ></app-stock-detail>
+</div>

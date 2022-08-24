@@ -1,0 +1,45 @@
+<mat-card>
+  <div class="mat-card-header">
+    <div class="title-subtitle">
+      <mat-card-title>{{stockQuote?.symbol}}</mat-card-title>
+      <mat-card-subtitle>{{stockQuote?.description}}</mat-card-subtitle>
+    </div>
+    <div class="remove">
+      <fa-icon (click)="stockDataService.removeTrackedStockQuote(stockQuote?.symbol!)" [icon]="faX"></fa-icon>
+    </div>
+  </div>
+
+  <mat-card-content>
+    <div class="column-1">
+      <div class="change-today">
+        <p>Change today :</p>
+        <p>{{stockQuote?.change! / 100 | percent: '1.2-3'}}</p>
+      </div>
+      <div class="current-price">
+        <p>Current price :</p>
+        <p>{{stockQuote?.currentPrice | currency}}</p>
+      </div>
+    </div>
+    <div class="column-2">
+      <div class="opening-price">
+        <p>Opening price :</p>
+        <p>{{stockQuote?.openPriceOfTheDay | currency}}</p>
+      </div>
+      <div class="high-price">
+        <p>High price :</p>
+        <p>{{stockQuote?.highPriceOfTheDay | currency}}</p>
+      </div>
+    </div>
+    <div class="column-2">
+      <div class="change-percent-trend">
+        <p class="up-arrow" *ngIf="stockQuote?.percentChange! > 0">
+          <fa-icon size="4x" [icon]="faArrowUpLong"></fa-icon>
+        </p>
+        <p class="down-arrow" *ngIf="stockQuote?.percentChange! < 0">
+          <fa-icon size="4x" [icon]="faArrowDownLong"></fa-icon>
+        </p>
+      </div>
+      <button [routerLink]="['sentiment', stockQuote?.symbol!]"  color="primary"  mat-button>See sentiment details</button>
+    </div>
+  </mat-card-content>
+</mat-card>

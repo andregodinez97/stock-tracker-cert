@@ -1,0 +1,38 @@
+<div class="sentiment-detail-container">
+  <mat-card *ngIf="(stockSentimentResponse$ | async) as stockSentimentResponse; else loading">
+    <mat-card-title>{{stockSentimentResponse.symbol}}</mat-card-title>
+    <mat-card-subtitle>{{(stockQuote$ | async)?.description}}</mat-card-subtitle>
+    <mat-card-content>
+      <div class="monthly-sentiment"
+           *ngFor="let stockSentiment of stockSentimentResponse.data">
+        <div class="monthly-sentiment-detail-top">
+          <h2>{{ newDateFromMonth(stockSentiment.month) | date: 'MMMM'}} {{stockSentiment.year}}</h2>
+          <div class="arrow">
+            <p class="up-arrow" *ngIf="stockSentiment.change! > 0">
+              <fa-icon size="4x" [icon]="faArrowUpLong"></fa-icon>
+            </p>
+            <p class="down-arrow" *ngIf="stockSentiment.change! < 0">
+              <fa-icon size="4x" [icon]="faArrowDownLong"></fa-icon>
+            </p>
+          </div>
+        </div>
+        <div class="monthly-sentiment-detail-bottom">
+          <div class="change">
+            <h2>Change :</h2>
+            <p>{{stockSentiment?.change}}</p>
+          </div>
+          <div class="mspr">
+            <h2>MSPR :</h2>
+            <p>{{stockSentiment?.mspr}}</p>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<ng-template #loading>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+<button [routerLink]="['']" color="primary" class="track-it-button" mat-button>Back to list of stocks</button>

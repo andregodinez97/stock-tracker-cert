@@ -1,0 +1,43 @@
+mat-card {
+  margin: 10px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.monthly-sentiment {
+  width: 33%;
+}
+
+.monthly-sentiment-detail-top {
+  display: flex;
+}
+
+.monthly-sentiment-detail-bottom {
+  display: flex;
+}
+
+.up-arrow {
+  color: greenyellow;
+}
+
+.down-arrow {
+  color: darkred;
+}
+
+.change, .mspr {
+  display: flex;
+  flex-flow: column;
+  margin-right: 20px;
+}
+
+.arrow {
+  margin-left: 50px;
+}

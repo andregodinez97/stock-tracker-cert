@@ -1,0 +1,31 @@
+mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.track-it-button {
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-text {
+  display: flex;
+  justify-content: center;
+}

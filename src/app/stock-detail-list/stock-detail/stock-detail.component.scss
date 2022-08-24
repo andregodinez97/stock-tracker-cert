@@ -1,0 +1,30 @@
+mat-card {
+  margin: 10px
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column-1,.column-2{
+  display: flex;
+  flex-flow: column;
+}
+
+.up-arrow {
+  color: greenyellow;
+}
+
+.down-arrow {
+  color: darkred;
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove {
+  cursor: pointer;
+}
